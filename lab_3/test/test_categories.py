@@ -1,6 +1,6 @@
 import unittest
-import helpers as HL
-from config.browser import Browser
+import common.helpers as HL
+from common.browser import Browser
 from pages.base_page import BasePage
 
 

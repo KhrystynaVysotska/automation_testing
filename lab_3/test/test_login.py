@@ -1,7 +1,7 @@
 import unittest
-import helpers as HL
-import messages as MSG
-from config.browser import Browser
+import common.helpers as HL
+import common.messages as MSG
+from common.browser import Browser
 from pages.login_page import LoginPage
 from pages.registration_page import RegistrationPage
 

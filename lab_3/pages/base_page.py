@@ -1,4 +1,4 @@
-import helpers as HL
+import common.helpers as HL
 from selenium.webdriver.common.by import By
 
 class BasePage:
