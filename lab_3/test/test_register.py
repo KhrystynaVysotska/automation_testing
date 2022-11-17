@@ -30,7 +30,7 @@ class RegisterTest(unittest.TestCase):
         self.registration_page.open()
 
         actual_url = self.browser.current_url
-        self.assertEqual(actual_url, self.registration_page.REGISTRATION_PAGE_URL)
+        self.assertEqual(actual_url, RegistrationPage.REGISTRATION_PAGE_URL)
     
     def test_should_fail_when_first_name_empty(self):
         self.registration_page.open()
@@ -38,7 +38,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["firstname"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('firstname', self.browser)
         self.assertEqual(actual_error_message, MSG.REQUIRED_FIELD_ERROR)
@@ -49,7 +49,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["lastname"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('lastname', self.browser)
         self.assertEqual(actual_error_message, MSG.REQUIRED_FIELD_ERROR)
@@ -60,7 +60,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["middlename"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
 
         actual_message = self.registration_page.search_sucessful_registration_message()
         self.assertEqual(actual_message, MSG.REGISTERED_SUCCESSFULLY_MSG)
@@ -71,7 +71,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["email"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('email_address', self.browser)
         self.assertEqual(actual_error_message, MSG.REQUIRED_FIELD_ERROR)
@@ -82,7 +82,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["email"] = 'invalid.email.@domain'
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('email_address', self.browser)
         self.assertEqual(actual_error_message, MSG.INVALID_EMAIL_FORMAT_ERROR)
@@ -93,7 +93,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["email"] = 'invalid.email@domain.dom'
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
 
         actual_error_messages = self.registration_page.search_failed_registration_messages()
         self.assertEqual(actual_error_messages, MSG.INVALID_EMAIL_DOMAIN_ERRORS)
@@ -104,10 +104,10 @@ class RegisterTest(unittest.TestCase):
         self.profile["password"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_password_error_message = HL.get_error_message_for('password', self.browser)
-        actual_confirmation_error_message =HL.get_error_message_for('confirmation', self.browser)
+        actual_confirmation_error_message = HL.get_error_message_for('confirmation', self.browser)
         
         self.assertEqual(actual_password_error_message, MSG.REQUIRED_FIELD_ERROR)
         self.assertEqual(actual_confirmation_error_message, MSG.PASSWORD_MISMATCH_ERROR)
@@ -118,7 +118,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["confirmation"] = ''
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('confirmation', self.browser)
         self.assertEqual(actual_error_message, MSG.REQUIRED_FIELD_ERROR)
@@ -129,7 +129,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["confirmation"] = f"{self.profile['password']}wrongpassword"
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('confirmation', self.browser)
         self.assertEqual(actual_error_message, MSG.PASSWORD_MISMATCH_ERROR)
@@ -142,7 +142,7 @@ class RegisterTest(unittest.TestCase):
         self.profile["confirmation"] = short_password
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = HL.get_error_message_for('password', self.browser)
         self.assertEqual(actual_error_message, MSG.PASSWORD_TOO_SHORT_ERROR)
@@ -151,7 +151,7 @@ class RegisterTest(unittest.TestCase):
         self.registration_page.open()
         self.registration_page.fill_form(self.profile)
 
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
 
         actual_message = self.registration_page.search_sucessful_registration_message()
         self.assertEqual(actual_message, MSG.REGISTERED_SUCCESSFULLY_MSG)
@@ -165,7 +165,7 @@ class RegisterTest(unittest.TestCase):
 
         self.registration_page.open()
         self.registration_page.fill_form(self.profile)
-        HL.click_button(self.registration_page.REGISTER_BUTTON, self.browser)
+        HL.click_button(RegistrationPage.REGISTER_BUTTON, self.browser)
         
         actual_error_message = self.registration_page.search_failed_registration_message()
         self.assertEqual(actual_error_message, MSG.USER_ALREADY_EXISTS_ERROR)
