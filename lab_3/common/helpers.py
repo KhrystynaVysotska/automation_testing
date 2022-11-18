@@ -4,13 +4,17 @@ import selenium.webdriver.support.expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.remote.webelement import WebElement
 
 def click_button(locator, driver):
     button = driver.find_element(*locator)
     button.click()
 
-def insert_input(locator, value, driver):
-    input = driver.find_element(*locator)
+def insert_input(input, value, driver):
+    if type(input) != WebElement:
+        input = driver.find_element(*input)
+
+    input.clear()
     input.send_keys(value)
 
 def get_error_message_for(id, driver):
@@ -22,23 +26,32 @@ def get_error_message_for(id, driver):
     except NoSuchElementException:
         return ''
 
-def get_element(locator, driver):
+def get_element(locator, driver, visible=False):
     try:
-        WebDriverWait(driver, timeout=5).until(EC.presence_of_element_located(locator))
+        if not visible:
+            WebDriverWait(driver, timeout=2).until(EC.presence_of_element_located(locator))
+        else:
+            WebDriverWait(driver, timeout=2).until(EC.visibility_of_element_located(locator))
         return driver.find_element(*locator)
-    except NoSuchElementException:
+    except TimeoutException:
         return None
 
-def get_elements(locator, driver):
+def get_elements(locator, driver, visible=False):
     try:
-        WebDriverWait(driver, timeout=5).until(EC.presence_of_all_elements_located(locator))
+        if not visible:
+            WebDriverWait(driver, timeout=2).until(EC.presence_of_element_located(locator))
+        else:
+            WebDriverWait(driver, timeout=2).until(EC.visibility_of_element_located(locator))
         return driver.find_elements(*locator)
     except TimeoutException:
         return []
 
-def hover_element(locator, driver):
+def hover_element(element, driver):
     actions = ActionChains(driver)
-    element = driver.find_element(*locator)
+
+    if type(element) != WebElement:
+        element = driver.find_element(*element)
+
     actions.move_to_element(element).perform()
 
 def click_enter(locator, driver):

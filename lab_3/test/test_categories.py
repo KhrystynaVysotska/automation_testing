@@ -21,7 +21,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/women.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "WOMEN")
     
     def test_should_succeed_when_women_category_has_clickable_subcategories(self):
@@ -46,7 +46,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/men.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "MEN")
     
     def test_should_succeed_when_men_category_has_clickable_subcategories(self):
@@ -71,7 +71,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/accessories.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "ACCESSORIES")
 
     def test_should_succeed_when_accessories_category_has_clickable_subcategories(self):
@@ -96,7 +96,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/home-decor.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "HOME & DECOR")
 
     def test_should_succeed_when_home_and_decor_category_has_clickable_subcategories(self):
@@ -121,7 +121,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/sale.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "SALE")
 
     def test_should_succeed_when_sale_category_has_clickable_subcategories(self):
@@ -146,7 +146,7 @@ class CategoriesTest(unittest.TestCase):
         expected_url = f"{BasePage.BASE_URL}/vip.html"
         self.assertEqual(actual_url, expected_url)
 
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "VIP")
 
     def test_should_succeed_when_vip_category_has_no_subcategories(self):
@@ -176,7 +176,7 @@ class CategoriesTest(unittest.TestCase):
         HL.insert_input(BasePage.SEARCH_INPUT, "denim", self.browser)
         HL.click_enter(BasePage.SEARCH_INPUT, self.browser)
         
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "SEARCH RESULTS FOR 'DENIM'")
 
         search_filters = HL.get_elements(BasePage.SEARCH_FILTERS, self.browser)
@@ -193,7 +193,7 @@ class CategoriesTest(unittest.TestCase):
         HL.insert_input(BasePage.SEARCH_INPUT, "shirt", self.browser)
         HL.click_enter(BasePage.SEARCH_INPUT, self.browser)
         
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "SEARCH RESULTS FOR 'SHIRT'")
 
         search_filters = HL.get_elements(BasePage.SEARCH_FILTERS, self.browser)
@@ -210,7 +210,7 @@ class CategoriesTest(unittest.TestCase):
         HL.insert_input(BasePage.SEARCH_INPUT, "black", self.browser)
         HL.click_enter(BasePage.SEARCH_INPUT, self.browser)
         
-        actual_page_title = HL.get_element(BasePage.PAGE_TITLE, self.browser).text
+        actual_page_title = self.main_page.search_page_title()
         self.assertEqual(actual_page_title, "SEARCH RESULTS FOR 'BLACK'")
 
         search_filters = HL.get_elements(BasePage.SEARCH_FILTERS, self.browser)

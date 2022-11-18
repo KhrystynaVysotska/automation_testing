@@ -50,9 +50,12 @@ class BasePage:
     def open(self):
         self.browser.get(self.BASE_URL)
 
-    def select_option(self, option_locator):
+    def select_option(self, option_locator) -> None:
         HL.click_button(self.ACCOUNT_MENU, self.browser)
         HL.click_button(option_locator, self.browser)
     
-    def select_tab(self, tab_locator):
+    def select_tab(self, tab_locator) -> None:
         HL.click_button(tab_locator, self.browser)
+    
+    def search_page_title(self) -> str:
+        return HL.get_element(BasePage.PAGE_TITLE, self.browser).text
