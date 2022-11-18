@@ -4,7 +4,7 @@ import unittest
 
 def load_tests(folder_name):
     loader = unittest.TestLoader()
-    package_tests = loader.discover(start_dir=folder_name, pattern="test_cart_page.py")
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_*.py")
     standard_tests = unittest.TestSuite()
     standard_tests.addTests(package_tests)
     return standard_tests
