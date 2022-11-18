@@ -81,3 +81,99 @@ py waits.py
 ```
 ![image](https://user-images.githubusercontent.com/56559854/202799746-f6fcb704-f39a-444b-b7ba-340e614bd1ab.png)
 </details>
+
+<details>
+<summary>Опис лабораторної роботи №3</summary>
+
+# Лабораторна №3
+## Завдання
+
+Реалізувати unittest скрипт тестування наступного функціоналу ресурсу http://demo-store.seleniumacademy.com:
+
+    a. Пошук різних груп товарів
+    b. Реєстрації нового користувача та логін
+    c. Довільний функціонал за вибором студента
+
+## Запуск
+
+1. Установіть **selenium** клієнт для Python:
+```
+pip install selenium
+```
+2. Склонуйте проект:
+```
+git clone https://github.com/KhrystynaVysotska/automation_testing.git
+```
+3. Перейдіть у папку **lab_3**:
+```
+cd lab_3
+```
+4. Щоб запустити всі тести, виконайте команду:
+```
+py launcher.py
+```
+5. Щоб запустити тести на функціонал **пошуку різних груп товарів**:
+- відкрийте у редакторі **launcher.py**
+- у лінійці 7 змініть патерн пошуку тестових файлів з **test_*.py** на **test_categories.py**:
+
+    _From_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_*.py")
+    ```
+    _To_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_categories.py")
+    ```
+- збережіть зміни та виконайте команду:
+    ```
+    py launcher.py
+    ```
+6. Щоб запустити тести на функціонал **реєстрації нового користувача**:
+- відкрийте у редакторі **launcher.py**
+- у лінійці 7 змініть патерн пошуку тестових файлів з **test_*.py** на **test_registration.py**:
+
+    _From_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_*.py")
+    ```
+    _To_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_registration.py")
+    ```
+- збережіть зміни та виконайте команду:
+    ```
+    py launcher.py
+    ```
+7. Щоб запустити тести на функціонал **логін користувача**:
+- відкрийте у редакторі **launcher.py**
+- у лінійці 7 змініть патерн пошуку тестових файлів з **test_*.py** на **test_login.py**:
+
+    _From_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_*.py")
+    ```
+    _To_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_login.py")
+    ```
+- збережіть зміни та виконайте команду:
+    ```
+    py launcher.py
+    ```
+8. Щоб запустити тести на функціонал за довільним вибором студента (**функціонал корзини**):
+- відкрийте у редакторі **launcher.py**
+- у лінійці 7 змініть патерн пошуку тестових файлів з **test_*.py** на **test_cart_*.py**:
+
+    _From_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_*.py")
+    ```
+    _To_
+    ```
+    package_tests = loader.discover(start_dir=folder_name, pattern="test_cart_*.py")
+    ```
+- збережіть зміни та виконайте команду:
+    ```
+    py launcher.py
+    ```
+</details>
