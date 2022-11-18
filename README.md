@@ -46,3 +46,38 @@ py additional_task.py
 ```
 ![image](https://user-images.githubusercontent.com/56559854/202797365-e08886ba-9bac-4b7c-baec-66fe8bc63157.png)
 </details>
+
+
+<details>
+<summary>Опис лабораторної роботи №2</summary>
+
+# Лабораторна №2
+## Завдання
+
+Реалізувати скрипт для автоматизації наступних дій:
+
+    a. Відкрити сторінку http://suninjuly.github.io/explicit_wait2.html 
+    b. Дочекатись, коли ціна зменшиться до $100
+    c. Натиснути кнопку "Book"
+    d. Розв’язати математичну капчу та відправити розв’язок (завдання 1 лабораторної роботи №1)
+
+## Запуск
+
+1. Установіть **selenium** клієнт для Python:
+```
+pip install selenium
+```
+2. Склонуйте проект:
+```
+git clone https://github.com/KhrystynaVysotska/automation_testing.git
+```
+3. Перейдіть у папку **lab_2**:
+```
+cd lab_2
+```
+4. Запустіть скрипт завдання:
+```
+py waits.py
+```
+![image](https://user-images.githubusercontent.com/56559854/202799746-f6fcb704-f39a-444b-b7ba-340e614bd1ab.png)
+</details>
