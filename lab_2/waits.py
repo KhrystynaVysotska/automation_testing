@@ -32,3 +32,5 @@ if text_found:
 
     submit = driver.find_element(By.CSS_SELECTOR, "button[type='submit']") 
     submit.click()
+
+driver.quit()
